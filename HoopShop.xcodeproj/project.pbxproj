@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F3B0199F28A9B6B2002EBFDA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F3B0199E28A9B6B2002EBFDA /* GoogleService-Info.plist */; };
+		F3B019A228A9B75B002EBFDA /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = F3B019A128A9B75B002EBFDA /* FirebaseAnalytics */; };
+		F3B019A428A9B75B002EBFDA /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = F3B019A328A9B75B002EBFDA /* FirebaseAuth */; };
+		F3B019A628A9B75B002EBFDA /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = F3B019A528A9B75B002EBFDA /* FirebaseDatabase */; };
+		F3B019A828A9B75B002EBFDA /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = F3B019A728A9B75B002EBFDA /* FirebaseFirestore */; };
+		F3B019AA28A9B75B002EBFDA /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = F3B019A928A9B75B002EBFDA /* FirebaseStorage */; };
 		F3D2D6D928A9A81600B7D71F /* HoopShopApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D2D6D828A9A81600B7D71F /* HoopShopApp.swift */; };
 		F3D2D6DB28A9A81600B7D71F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D2D6DA28A9A81600B7D71F /* ContentView.swift */; };
 		F3D2D6DD28A9A81800B7D71F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3D2D6DC28A9A81800B7D71F /* Assets.xcassets */; };
@@ -14,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F3B0199E28A9B6B2002EBFDA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F3D2D6D528A9A81600B7D71F /* HoopShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HoopShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3D2D6D828A9A81600B7D71F /* HoopShopApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoopShopApp.swift; sourceTree = "<group>"; };
 		F3D2D6DA28A9A81600B7D71F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -26,6 +33,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3B019A628A9B75B002EBFDA /* FirebaseDatabase in Frameworks */,
+				F3B019A828A9B75B002EBFDA /* FirebaseFirestore in Frameworks */,
+				F3B019A228A9B75B002EBFDA /* FirebaseAnalytics in Frameworks */,
+				F3B019AA28A9B75B002EBFDA /* FirebaseStorage in Frameworks */,
+				F3B019A428A9B75B002EBFDA /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,6 +63,7 @@
 		F3D2D6D728A9A81600B7D71F /* HoopShop */ = {
 			isa = PBXGroup;
 			children = (
+				F3B0199E28A9B6B2002EBFDA /* GoogleService-Info.plist */,
 				F3D2D6D828A9A81600B7D71F /* HoopShopApp.swift */,
 				F3D2D6DA28A9A81600B7D71F /* ContentView.swift */,
 				F3D2D6DC28A9A81800B7D71F /* Assets.xcassets */,
@@ -83,6 +96,13 @@
 			dependencies = (
 			);
 			name = HoopShop;
+			packageProductDependencies = (
+				F3B019A128A9B75B002EBFDA /* FirebaseAnalytics */,
+				F3B019A328A9B75B002EBFDA /* FirebaseAuth */,
+				F3B019A528A9B75B002EBFDA /* FirebaseDatabase */,
+				F3B019A728A9B75B002EBFDA /* FirebaseFirestore */,
+				F3B019A928A9B75B002EBFDA /* FirebaseStorage */,
+			);
 			productName = HoopShop;
 			productReference = F3D2D6D528A9A81600B7D71F /* HoopShop.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +131,9 @@
 				Base,
 			);
 			mainGroup = F3D2D6CC28A9A81500B7D71F;
+			packageReferences = (
+				F3B019A028A9B75B002EBFDA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = F3D2D6D628A9A81600B7D71F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -127,6 +150,7 @@
 			files = (
 				F3D2D6E028A9A81800B7D71F /* Preview Assets.xcassets in Resources */,
 				F3D2D6DD28A9A81800B7D71F /* Assets.xcassets in Resources */,
+				F3B0199F28A9B6B2002EBFDA /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +363,45 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F3B019A028A9B75B002EBFDA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F3B019A128A9B75B002EBFDA /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F3B019A028A9B75B002EBFDA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		F3B019A328A9B75B002EBFDA /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F3B019A028A9B75B002EBFDA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		F3B019A528A9B75B002EBFDA /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F3B019A028A9B75B002EBFDA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		F3B019A728A9B75B002EBFDA /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F3B019A028A9B75B002EBFDA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		F3B019A928A9B75B002EBFDA /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F3B019A028A9B75B002EBFDA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F3D2D6CD28A9A81500B7D71F /* Project object */;
 }
