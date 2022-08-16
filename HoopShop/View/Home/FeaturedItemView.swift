@@ -6,10 +6,13 @@
 //
 
 import SwiftUI
+import FirebaseCore
+import FirebaseStorage
 
 struct FeaturedItemView: View {
     // MARK: - PROPERTY
     let featuredProduct: FeaturedProduct
+//    let storageReference = storage.reference("images/hoop.jpeg")
     
     // MARK: - BODY
     var body: some View {
@@ -23,7 +26,7 @@ struct FeaturedItemView: View {
 // MARK: - PREVIEW
 struct FeaturedItemView_Previews: PreviewProvider {
     static var previews: some View {
-        FeaturedItemView(featuredProduct: featuredProducts[0])
+        FeaturedItemView(featuredProduct: featuredProducts[5])
             .previewLayout(.sizeThatFits)
             .padding()
             .background(colorBackground)
