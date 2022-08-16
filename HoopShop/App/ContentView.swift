@@ -27,6 +27,8 @@ struct ContentView: View {
                         .padding(.vertical, 20)
                         .frame(width: 380, height: 275, alignment: .center)
                     
+                    CategoryGridView()
+                    
                     FooterView()
                         .padding(.horizontal)
                 }//: VStack
