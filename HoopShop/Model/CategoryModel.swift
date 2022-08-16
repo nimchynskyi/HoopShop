@@ -11,7 +11,6 @@ import FirebaseFirestore
 struct Category: Codable, Identifiable {
     let id: Int
     let name: String
-    let image: String
 }
 
 class CategoryModel: ObservableObject {
@@ -31,9 +30,10 @@ class CategoryModel: ObservableObject {
                 
                 let id = data["id"] as? Int ?? 0
                 let name = data["name"] as? String ?? ""
-                let image = data["image"] as? String ?? ""
+//                let image = data["image"] as? String ?? ""
                 
-                return Category(id: id, name: name, image: image)
+                return Category(id: id, name: name)
+//                return Category(id: id, name: name, image: image)
             }
         }
     }

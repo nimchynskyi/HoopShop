@@ -10,6 +10,7 @@ import SwiftUI
 struct CategoryListView: View {
     // MARK: - PROPERTIES
     @ObservedObject var viewModel = CategoryModel()
+    @ObservedObject var storageManager = StorageManager()
     
     // MARK: - BODY
     var body: some View {
@@ -20,8 +21,8 @@ struct CategoryListView: View {
                         .font(.headline)
                     Text(category.name)
                         .font(.headline)
-                    Text(category.image)
-                        .font(.headline)
+//                    Text(category.image)
+//                        .font(.headline)
                 }
             }
             .navigationTitle("Categories")
