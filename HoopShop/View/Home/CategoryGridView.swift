@@ -18,7 +18,7 @@ struct CategoryGridView: View {
         ScrollView(.horizontal, showsIndicators: false, content: {
             LazyHGrid(rows: gridLayout,
                       alignment: .center,
-                      spacing: 10,
+                      spacing: columnSpacing,
                       pinnedViews: [],
                       content: {
                 Section(
