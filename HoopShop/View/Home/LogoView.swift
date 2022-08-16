@@ -22,6 +22,7 @@ struct LogoView: View {
                 .resizable()
                 .scaledToFit()
                 .frame(width: 30, height: 30, alignment: .center)
+                .foregroundColor(.black)
             
             Text("Shop".uppercased())
                 .font(.title3)

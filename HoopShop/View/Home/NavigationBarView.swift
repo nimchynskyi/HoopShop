@@ -46,6 +46,7 @@ struct NavigationBarView: View {
                 }
             })//: Button
         }//: HStack
+        .preferredColorScheme(.light) // white tint on status bar
     }
 }
 
