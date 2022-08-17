@@ -9,9 +9,6 @@ import SwiftUI
 
 struct CategoryGridView: View {
     // MARK: - PROPERTY
-    var gridLayout: [GridItem] {
-        return Array (repeating: GridItem(), count: 2)
-    }
     
     // MARK: - BODY
     var body: some View {

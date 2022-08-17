@@ -29,6 +29,7 @@ var gridLayout: [GridItem] {
 }
 
 // UX
+let feedback = UIImpactFeedbackGenerator(style: .medium)
 
 // API
 let rootRef = Database.database().reference()
