@@ -44,7 +44,7 @@ struct ProductItemView: View {
 // MARK: - PREVIEW
 struct ProductItemView_Previews: PreviewProvider {
     static var previews: some View {
-        ProductItemView(product: products[0])
+        ProductItemView(product: sampleProduct)
             .previewLayout(.fixed(width: 200, height: 300))
             .padding()
             .background(colorBackground)

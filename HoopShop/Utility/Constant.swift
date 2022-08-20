@@ -13,9 +13,9 @@ import FirebaseStorage
 // DATA
 let featuredProducts: [FeaturedProduct] = Bundle.main.decode("featured.json")
 //let categories: [Category] = Bundle.main.decode("category.json")
-let products: [Product] = Bundle.main.decode("product.json")
+//let products: [Product] = Bundle.main.decode("product.json")
 let brands: [Brand] = Bundle.main.decode("brand.json")
-let sampleProduct: Product = products[0]
+let sampleProduct = Product( id: 1, name: "name", image: "image", price: 199, description: "description", color: [0.1, 0.2, 0.3])
 
 // COLOR
 let colorBackground: Color = Color("ColorBackground")
