@@ -25,6 +25,7 @@ struct ContentView: View {
                     
                     ScrollView(.vertical, showsIndicators: false, content: {
                         VStack(spacing: 0) {
+                            
                             FeaturedTabView()
                                 .padding(.vertical, 20)
                                 .frame(width: 380, height: 275, alignment: .center)
@@ -33,7 +34,7 @@ struct ContentView: View {
                             
                             TitleView(title: "Balls")
                             LazyVGrid(columns: gridLayout, spacing: 15,content: {
-                                ForEach(products) { product in
+                                ForEach(firestoreManager.products_arr) { product in
                                     ProductItemView(product: product)
                                         .onTapGesture {
                                             feedback.impactOccurred()
