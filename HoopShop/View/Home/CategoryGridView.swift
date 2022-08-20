@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CategoryGridView: View {
     // MARK: - PROPERTY
-    
+
     // MARK: - BODY
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false, content: {
@@ -22,9 +22,7 @@ struct CategoryGridView: View {
                     header: SectionView(rotateClockwise: false),
                     footer: SectionView(rotateClockwise: true)
                 ) {
-                    ForEach(categories) { category in
-                        CategoryItemView(category: category)
-                    }
+                    CategoryItemView()
                 }
             })//: GRID
             .frame(height: 140)
@@ -38,6 +36,7 @@ struct CategoryGridView: View {
 struct CategoryGridView_Previews: PreviewProvider {
     static var previews: some View {
         CategoryGridView()
+            .environmentObject(FirestoreManager())
             .previewLayout(.sizeThatFits)
             .padding()
             .background(colorBackground)
