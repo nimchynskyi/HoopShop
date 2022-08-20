@@ -12,7 +12,7 @@ import FirebaseStorage
 
 // DATA
 let featuredProducts: [FeaturedProduct] = Bundle.main.decode("featured.json")
-let categories: [Category] = Bundle.main.decode("category.json")
+//let categories: [Category] = Bundle.main.decode("category.json")
 let products: [Product] = Bundle.main.decode("product.json")
 let brands: [Brand] = Bundle.main.decode("brand.json")
 let sampleProduct: Product = products[0]
@@ -32,11 +32,11 @@ var gridLayout: [GridItem] {
 let feedback = UIImpactFeedbackGenerator(style: .medium)
 
 // API
-let rootRef = Database.database().reference()
-let categoryRef = rootRef.child("category")
+//let rootRef = Database.database().reference()
+//let categoryRef = rootRef.child("category")
 
-let storage = Storage.storage()
-let storageRef = storage.reference().child("images")
+//let storage = Storage.storage()
+//let storageRef = storage.reference().child("images")
 
 //categoryRef
 //    .queryOrderedByKey()
