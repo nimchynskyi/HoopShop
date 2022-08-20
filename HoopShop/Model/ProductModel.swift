@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Product: Codable, Identifiable {
+struct Product: Identifiable {
     let id: Int
     let name: String
     let image: String
@@ -19,5 +19,15 @@ struct Product: Codable, Identifiable {
     var green: Double { return color[1] }
     var blue: Double { return color[2] }
     
-    var formattedPrice: String { return "$\(price)" }
+    
+    var formattedPrice: String {
+        if price == 0 {
+            return ""
+        } else {
+            return "$\(price)"
+        }
+        
+    }
 }
+
+
