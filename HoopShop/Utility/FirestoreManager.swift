@@ -5,39 +5,19 @@
 //  Created by Dmytro Nimchynskyi on 20/08/2022.
 //
 
+import SwiftUI
 import Foundation
 import FirebaseFirestore
+import FirebaseStorage
 
 class FirestoreManager: ObservableObject {
-    @Published var ctg: String = ""
     @Published var ctg_arr = [Category]()
     @Published var products_arr = [Product]()
+    @Published var imageURL : URL?
     
     init() {
-        fetchCategory()
         fetchAllCategories()
         fetchBalls()
-    }
-    
-    func fetchCategory() {
-        let db = Firestore.firestore()
-        
-        let docRef = db.collection("category").document("ctg-balls")
-        
-        docRef.getDocument { (document, error) in
-            guard error == nil else {
-                print("error", error ?? "")
-                return
-            }
-            
-            if let document = document, document.exists {
-                let data = document.data()
-                if let data = data {
-                    print("data", data)
-                    self.ctg = data["name"] as? String ?? ""
-                }
-            }
-        }
     }
     
     func fetchAllCategories() {
@@ -65,6 +45,7 @@ class FirestoreManager: ObservableObject {
             } else {
                 DispatchQueue.main.async {
                     self.products_arr = querySnapshot!.documents.map{ item in
+                        
                         return Product(
                             id: item["id"] as? Int ?? 0,
                             name: item["name"] as? String ?? "",
@@ -77,5 +58,15 @@ class FirestoreManager: ObservableObject {
                 }
             }
         }
+    }
+    
+    func getURL(path: String) {
+        let storage = Storage.storage()
+        storage.reference().child("images/" + path).downloadURL(completion: { url, error in
+            guard let url = url, error == nil else {
+                return
+            }
+            self.imageURL = url
+        })
     }
 }
