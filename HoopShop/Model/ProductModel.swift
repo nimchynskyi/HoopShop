@@ -26,7 +26,6 @@ struct Product: Identifiable {
         } else {
             return "$\(price)"
         }
-        
     }
 }
 
