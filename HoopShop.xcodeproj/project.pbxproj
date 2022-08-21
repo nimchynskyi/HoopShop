@@ -46,6 +46,8 @@
 		F3B3FECF28B2815300355E04 /* CartItemDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B3FECE28B2815300355E04 /* CartItemDetail.swift */; };
 		F3B3FED128B282E100355E04 /* CartSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B3FED028B282E100355E04 /* CartSummaryView.swift */; };
 		F3B3FED328B2849500355E04 /* CartPaymentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B3FED228B2849500355E04 /* CartPaymentView.swift */; };
+		F3B3FED728B2D52C00355E04 /* BallsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B3FED628B2D52C00355E04 /* BallsView.swift */; };
+		F3B3FED928B2D53800355E04 /* ShoesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B3FED828B2D53800355E04 /* ShoesView.swift */; };
 		F3D2D6D928A9A81600B7D71F /* HoopShopApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D2D6D828A9A81600B7D71F /* HoopShopApp.swift */; };
 		F3D2D6DB28A9A81600B7D71F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D2D6DA28A9A81600B7D71F /* ContentView.swift */; };
 		F3D2D6DD28A9A81800B7D71F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3D2D6DC28A9A81800B7D71F /* Assets.xcassets */; };
@@ -93,6 +95,8 @@
 		F3B3FECE28B2815300355E04 /* CartItemDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemDetail.swift; sourceTree = "<group>"; };
 		F3B3FED028B282E100355E04 /* CartSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartSummaryView.swift; sourceTree = "<group>"; };
 		F3B3FED228B2849500355E04 /* CartPaymentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartPaymentView.swift; sourceTree = "<group>"; };
+		F3B3FED628B2D52C00355E04 /* BallsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallsView.swift; sourceTree = "<group>"; };
+		F3B3FED828B2D53800355E04 /* ShoesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoesView.swift; sourceTree = "<group>"; };
 		F3D2D6D528A9A81600B7D71F /* HoopShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HoopShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3D2D6D828A9A81600B7D71F /* HoopShopApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoopShopApp.swift; sourceTree = "<group>"; };
 		F3D2D6DA28A9A81600B7D71F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -127,11 +131,6 @@
 				F3D2D6D828A9A81600B7D71F /* HoopShopApp.swift */,
 				F3D2D6DA28A9A81600B7D71F /* ContentView.swift */,
 				F350686628AC4FA70009F4DD /* ProductDetailView.swift */,
-				F3B3FECA28B26EE200355E04 /* CartView.swift */,
-				F3B3FECC28B27EA800355E04 /* CartItemView.swift */,
-				F3B3FECE28B2815300355E04 /* CartItemDetail.swift */,
-				F3B3FED028B282E100355E04 /* CartSummaryView.swift */,
-				F3B3FED228B2849500355E04 /* CartPaymentView.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -139,6 +138,8 @@
 		F3B019AD28A9BC70002EBFDA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F3B3FED528B2D51600355E04 /* Categories */,
+				F3B3FED428B2D4E400355E04 /* Cart */,
 				F3B019B228A9BCCD002EBFDA /* Home */,
 				F3B019B328A9BCD2002EBFDA /* Detail */,
 			);
@@ -217,6 +218,27 @@
 				F3B019C728A9BEBF002EBFDA /* product.json */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		F3B3FED428B2D4E400355E04 /* Cart */ = {
+			isa = PBXGroup;
+			children = (
+				F3B3FECA28B26EE200355E04 /* CartView.swift */,
+				F3B3FECC28B27EA800355E04 /* CartItemView.swift */,
+				F3B3FECE28B2815300355E04 /* CartItemDetail.swift */,
+				F3B3FED028B282E100355E04 /* CartSummaryView.swift */,
+				F3B3FED228B2849500355E04 /* CartPaymentView.swift */,
+			);
+			path = Cart;
+			sourceTree = "<group>";
+		};
+		F3B3FED528B2D51600355E04 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				F3B3FED628B2D52C00355E04 /* BallsView.swift */,
+				F3B3FED828B2D53800355E04 /* ShoesView.swift */,
+			);
+			path = Categories;
 			sourceTree = "<group>";
 		};
 		F3D2D6CC28A9A81500B7D71F = {
@@ -348,11 +370,13 @@
 				F3B3FECD28B27EA800355E04 /* CartItemView.swift in Sources */,
 				F3B019CD28A9BFAF002EBFDA /* FeaturedProductModel.swift in Sources */,
 				F3B019D128A9C02E002EBFDA /* CodableBundleExtension.swift in Sources */,
+				F3B3FED928B2D53800355E04 /* ShoesView.swift in Sources */,
 				F3B3FEBF28B2633200355E04 /* Cart.swift in Sources */,
 				F3F9B5A528AD5554008BBA82 /* CustomShape.swift in Sources */,
 				F3B019B528A9BD27002EBFDA /* FooterView.swift in Sources */,
 				F350686928AC50DB0009F4DD /* NavigationBarDetailView.swift in Sources */,
 				F3A1F7F528AAFE2A003CA36C /* CategoryGridView.swift in Sources */,
+				F3B3FED728B2D52C00355E04 /* BallsView.swift in Sources */,
 				F3A1F7F328AAFB76003CA36C /* CategoryItemView.swift in Sources */,
 				F3B019BC28A9BDB4002EBFDA /* LogoView.swift in Sources */,
 				F3F9B5AB28AD5E42008BBA82 /* AddToCartDetailView.swift in Sources */,

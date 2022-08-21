@@ -14,7 +14,11 @@ struct HeaderDetailView: View {
     // MARK: - Body
     var body: some View {
         VStack(alignment: .leading, spacing: 6, content: {
-            Text("Balls")
+            if shop.selectedProduct?.productType == "ball" {
+                Text("Balls")
+            } else {
+                Text("Shoes")
+            }
             
             Text(shop.selectedProduct?.name ?? sampleProduct.name)
                 .font(.largeTitle)

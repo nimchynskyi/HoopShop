@@ -18,8 +18,8 @@ class FirestoreManager: ObservableObject {
     
     init() {
         fetchAllCategories()
-        fetchBalls()
-//        fetchOrders()
+        fetchAllProducts()
+        fetchOrders()
     }
     
     func fetchAllCategories() {
@@ -38,23 +38,23 @@ class FirestoreManager: ObservableObject {
         }
     }
     
-    func fetchBalls() {
+    func fetchAllProducts() {
         let db = Firestore.firestore()
         
-        db.collection("products").whereField("productType", isEqualTo: "ball").addSnapshotListener{ (querySnapshot, error) in
+        db.collection("products").addSnapshotListener{ (querySnapshot, error) in
             if let error = error {
                 print("Error getting documents: \(error)")
             } else {
                 DispatchQueue.main.async {
                     self.products_arr = querySnapshot!.documents.map{ item in
-                        
                         return Product(
                             id: item["id"] as? Int ?? 0,
                             name: item["name"] as? String ?? "",
                             image: item["image"] as? String ?? "",
                             price: item["price"] as? Int ?? 0,
                             description: item["description"] as? String ?? "",
-                            color: item["color"] as? [Double] ?? []
+                            color: item["color"] as? [Double] ?? [],
+                            productType: item["productType"] as? String ?? ""
                         )
                     }
                 }
@@ -62,28 +62,30 @@ class FirestoreManager: ObservableObject {
         }
     }
     
-//    func fetchOrders() {
-//        let db = Firestore.firestore()
-//
-//        db.collection("orders").addSnapshotListener{ (querySnapshot, error) in
-//            if let error = error {
-//                print("Error getting documents: \(error)")
-//            } else {
-//                DispatchQueue.main.async {
-//                    self.orders_arr = querySnapshot!.documents.map{item in
-//                        return CartProduct(
-//                            id: item["id"] as? Int ?? 0,
-//                            name: item["name"] as? String ?? "",
-//                            image: item["image"] as? String ?? "",
-//                            price: item["price"] as? Int ?? 0,
-//                            description: item["description"] as? String ?? "",
-//                            count: item["count"] as? Int ?? 0
-//                        )
-//                    }
-//                }
-//            }
-//        }
-//    }
+    
+    
+    func fetchOrders() {
+        let db = Firestore.firestore()
+
+        db.collection("orders").addSnapshotListener{ (querySnapshot, error) in
+            if let error = error {
+                print("Error getting documents: \(error)")
+            } else {
+                DispatchQueue.main.async {
+                    self.orders_arr = querySnapshot!.documents.map{item in
+                        return CartProduct(
+                            id: item["id"] as? Int ?? 0,
+                            name: item["name"] as? String ?? "",
+                            image: item["image"] as? String ?? "",
+                            price: item["price"] as? Int ?? 0,
+                            description: item["description"] as? String ?? "",
+                            count: item["count"] as? Int ?? 0
+                        )
+                    }
+                }
+            }
+        }
+    }
     
     func getURL(path: String) {
         let storage = Storage.storage()
