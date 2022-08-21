@@ -8,13 +8,39 @@
 import SwiftUI
 
 struct CartSummaryView: View {
+    @EnvironmentObject var cart: Cart
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            Button(action: {}) { Text("Add promo code").padding()}
+            HStack {
+                Text("Summary").bold()
+                Spacer()
+                VStack {
+                    HStack {
+                        Text("Count")
+                        Spacer()
+                        Text("\(cart.countTotal)")
+                    }
+                    HStack {
+                        Text("Discount")
+                        Spacer()
+                        Text(String(format: "$%.2f", 0))
+                    }
+                    HStack {
+                        Text("Total")
+                        Spacer()
+                        Text(String(format: "$%.2f", cart.subtotal))
+                    }
+                }.frame(width: 200)
+            }.padding()
+        }
     }
 }
 
 struct CartSummaryView_Previews: PreviewProvider {
     static var previews: some View {
         CartSummaryView()
+            .environmentObject(Cart())
     }
 }
