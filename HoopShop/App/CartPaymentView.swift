@@ -9,7 +9,15 @@ import SwiftUI
 
 struct CartPaymentView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            Image(systemName: "creditcard")
+                .font(.title)
+            
+            Text("Order")
+                .fontWeight(.semibold).font(.title)
+            
+        }.padding().foregroundColor(.white).background(Color.orange)
+            .cornerRadius(40)
     }
 }
 
