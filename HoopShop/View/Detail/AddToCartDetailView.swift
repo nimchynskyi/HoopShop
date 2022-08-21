@@ -15,7 +15,9 @@ struct AddToCartDetailView: View {
     // MARK: - Body
     var body: some View {
         Button(action: {
-//            cart.addProduct(product: shop.selectedProduct ?? sampleProduct)
+            if cart.count != 0 {
+                cart.addProduct(product: shop.selectedProduct ?? sampleProduct)
+            }
             feedback.impactOccurred()
         }, label: {
             Spacer()
