@@ -32,23 +32,18 @@ struct ContentView: View {
                                 .padding(.vertical, 20)
                                 .frame(width: 380, height: 275, alignment: .center)
                             
+                            // Categories grid
                             CategoryGridView()
                             
-                            TitleView(title: "Balls")
-                            LazyVGrid(columns: gridLayout, spacing: 15,content: {
-                                ForEach(firestoreManager.products_arr) { product in
-                                    ProductItemView(product: product)
-                                        .onTapGesture {
-                                            feedback.impactOccurred()
-                                            withAnimation(.easeOut) {
-                                                shop.selectedProduct = product
-                                                shop.showingProduct = true
-                                            }
-                                        }
-                                }//: LOOP
-                            })//: GRID
-                            .padding(15)
+                            // Categories view
+                            if shop.showShoes{
+                                ShoesView()
+                            }
+                            else if shop.showBalls{
+                                BallsView()
+                            }
                             
+                            // Brands
                             TitleView(title: "Brands")
                             BrandGridView()
                             
