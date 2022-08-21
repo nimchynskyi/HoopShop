@@ -10,6 +10,7 @@ import SwiftUI
 struct NavigationBarDetailView: View {
     // MARK: - Property
     @EnvironmentObject var shop: Shop
+    @EnvironmentObject var cart: Cart
     
     // MARK: - Body
     var body: some View {
@@ -28,11 +29,16 @@ struct NavigationBarDetailView: View {
             
             Spacer()
             
-            Button(action: {}, label: {
+            Button(action: {
+                feedback.impactOccurred()
+                cart.showingCart.toggle()
+            }, label: {
                 Image(systemName: "cart")
                     .font(.title)
                     .foregroundColor(.white)
-            })
+            }).sheet(isPresented: $cart.showingCart) {
+                CartView()
+            }
         }//: HStack
     }
 }
@@ -42,6 +48,7 @@ struct NavigationBarDetailView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationBarDetailView()
             .environmentObject(Shop())
+            .environmentObject(Cart())
             .previewLayout(.sizeThatFits)
             .padding()
             .background(Color.gray)
