@@ -7,10 +7,12 @@
 
 import SwiftUI
 import FirebaseFirestore
+import FirebaseStorage
 
 struct ContentView: View {
     // MARK: - PROPERTIES
     @EnvironmentObject var shop: Shop
+    @EnvironmentObject var cart: Cart
     @EnvironmentObject var firestoreManager: FirestoreManager
     
     // MARK: - BODY
@@ -68,6 +70,7 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
             .environmentObject(Shop())
+            .environmentObject(Cart())
             .environmentObject(FirestoreManager())
     }
 }

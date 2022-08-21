@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FirebaseStorage
 
 struct TopPartDetailView: View {
     // MARK: - PROPERTY

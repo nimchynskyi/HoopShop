@@ -10,10 +10,12 @@ import SwiftUI
 struct AddToCartDetailView: View {
     // MARK: - Property
     @EnvironmentObject var shop: Shop
+    @EnvironmentObject var cart: Cart
     
     // MARK: - Body
     var body: some View {
         Button(action: {
+//            cart.addProduct(product: shop.selectedProduct ?? sampleProduct)
             feedback.impactOccurred()
         }, label: {
             Spacer()
@@ -40,6 +42,7 @@ struct AddToCartDetailView_Previews: PreviewProvider {
     static var previews: some View {
         AddToCartDetailView()
             .environmentObject(Shop())
+            .environmentObject(Cart())
             .previewLayout(.sizeThatFits)
             .padding()
     }

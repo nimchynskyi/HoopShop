@@ -10,6 +10,7 @@ import SwiftUI
 struct NavigationBarView: View {
     // MARK: - PROPERTIES
     @State private var isAnimated: Bool = false
+    @EnvironmentObject var cart: Cart
     
     // MARK: - BODY
     var body: some View {
@@ -33,7 +34,9 @@ struct NavigationBarView: View {
             
             Spacer()
             
-            Button(action: {}, label: {
+            Button(action: {
+                cart.showingCart.toggle()
+            }, label: {
                 ZStack {
                     Image(systemName: "cart")
                         .font(.title)
@@ -44,7 +47,9 @@ struct NavigationBarView: View {
                         .offset(x: 13, y: -10)
                     
                 }
-            })//: Button
+            }).sheet(isPresented: $cart.showingCart) {
+                CartView()
+            }//: Button
         }//: HStack
         .preferredColorScheme(.light) // white tint on status bar
     }
@@ -54,6 +59,7 @@ struct NavigationBarView: View {
 struct NavigationBarView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationBarView()
+            .environmentObject(Cart())
             .previewLayout(.sizeThatFits)
             .padding()
     }
