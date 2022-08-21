@@ -61,7 +61,7 @@ struct ContentView: View {
             } else {
                 ProductDetailView()
             }
-        }
+        }.preferredColorScheme(.light)
     }
 }
 
