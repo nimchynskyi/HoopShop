@@ -36,6 +36,7 @@ struct NavigationBarView: View {
             
             Button(action: {
                 cart.showingCart.toggle()
+                feedback.impactOccurred()
             }, label: {
                 ZStack {
                     Image(systemName: "cart")
@@ -51,7 +52,7 @@ struct NavigationBarView: View {
                 CartView()
             }//: Button
         }//: HStack
-        .preferredColorScheme(.light) // white tint on status bar
+//        .preferredColorScheme(.light) // white tint on status bar
     }
 }
 
