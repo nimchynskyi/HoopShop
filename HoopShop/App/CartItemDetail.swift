@@ -8,13 +8,32 @@
 import SwiftUI
 
 struct CartItemDetail: View {
+    var cartItem: CartProduct
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            ScrollView{
+                Text(cartItem.product.name).font(.largeTitle)
+                
+                Image(cartItem.product.image)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 200, height: 200)
+                    .clipShape(Circle())
+                
+                Text("$\(cartItem.product.price)")
+                
+                Text(cartItem.product.description)
+                    .multilineTextAlignment(.center)
+                    .padding(.all, 20.0)
+                    .font(.system(size: 12))
+            }
+        }
     }
-}
-
-struct CartItemDetail_Previews: PreviewProvider {
-    static var previews: some View {
-        CartItemDetail()
+    
+    struct CartItemDetail_Previews: PreviewProvider {
+        static var previews: some View {
+            CartItemDetail(cartItem: sampleOrder)
+        }
     }
 }
