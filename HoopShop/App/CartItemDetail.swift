@@ -11,9 +11,10 @@ struct CartItemDetail: View {
     var cartItem: CartProduct
     
     var body: some View {
-        VStack {
+        VStack(alignment: .center, spacing: 6) {
             ScrollView{
-                Text(cartItem.product.name).font(.largeTitle)
+                Text(cartItem.product.name)
+                    .font(.largeTitle)
                 
                 Image(cartItem.product.image)
                     .resizable()
@@ -22,11 +23,15 @@ struct CartItemDetail: View {
                     .clipShape(Circle())
                 
                 Text("$\(cartItem.product.price)")
+                    .font(.title)
+                    .fontWeight(.black)
+                
+                Text("Description: ")
                 
                 Text(cartItem.product.description)
                     .multilineTextAlignment(.center)
                     .padding(.all, 20.0)
-                    .font(.system(size: 12))
+                    .font(.subheadline)
             }
         }
     }
