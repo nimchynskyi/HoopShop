@@ -44,9 +44,7 @@ class Cart: ObservableObject {
     var addNewProduct = true
     
     func addProduct(product: Product){
-        let price = Double(product.price)
-        subtotal += price
-        subtotal *= Double(count)
+        subtotal += Double(count * product.price)
         
         var addNewProduct = true
         for (index, item) in cartItems.enumerated() {

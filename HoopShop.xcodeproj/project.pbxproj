@@ -136,10 +136,10 @@
 		F3B019AD28A9BC70002EBFDA /* View */ = {
 			isa = PBXGroup;
 			children = (
-				F3B3FED528B2D51600355E04 /* Categories */,
-				F3B3FED428B2D4E400355E04 /* Cart */,
 				F3B019B228A9BCCD002EBFDA /* Home */,
 				F3B019B328A9BCD2002EBFDA /* Detail */,
+				F3B3FED528B2D51600355E04 /* Categories */,
+				F3B3FED428B2D4E400355E04 /* Cart */,
 			);
 			path = View;
 			sourceTree = "<group>";
