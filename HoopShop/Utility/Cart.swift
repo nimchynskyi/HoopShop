@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import FirebaseFirestore
 
 struct CartProduct: Identifiable {
     
@@ -19,6 +20,7 @@ struct CartProduct: Identifiable {
         self.count = count
     }
 }
+
 
 // To compare CartProduct for removal
 extension CartProduct : Equatable {
@@ -35,6 +37,7 @@ class Cart: ObservableObject {
     @Published var cartItems: [CartProduct] = []
     @Published var showingCart: Bool = false
     
+    // Display order
     var count = 0
     var countTotal = 0
     var subtotal = 0.0
@@ -65,5 +68,48 @@ class Cart: ObservableObject {
         self.countTotal -= product.count
         subtotal -= Double(product.product.price * product.count)
         cartItems.removeAll(where: { $0 == product })
+    }
+    
+    func makeOrder() {
+        let orderNumber = Int.random(in: 100000...999999)
+        let orderName: String = "order_no" + String(orderNumber)
+        
+        var order = [String: Any]()
+        var orderItems = ""
+        for item in cartItems {
+            orderItems += (item.product.name + " x" + String(item.count) + "($" + String(item.product.price * item.count) + "); ")
+        }
+        
+        order["orderId"] = UUID().uuidString
+        order["orderItems"] = orderItems
+        order["orderPrice"] = subtotal
+        
+        let db = Firestore.firestore()
+        let docRef = db.collection("orders").document(orderName)
+        
+        // Order data
+        docRef.setData(order) { error in
+            if let error = error {
+                print("Error writing document: \(error)")
+            } else {
+                print("Document successfully written!")
+            }
+        }
+        
+        // Timestamp
+        docRef.updateData(["orderDate": FieldValue.serverTimestamp(),]) { error in
+            if let error = error {
+                print("Error updating document: \(error)")
+            } else {
+                print("Document successfully updated!")
+            }
+        }
+        
+        // Clear cart and order data
+        cartItems.removeAll()
+        order.removeAll()
+        self.count = 0
+        self.countTotal = 0
+        self.subtotal = 0.0
     }
 }
