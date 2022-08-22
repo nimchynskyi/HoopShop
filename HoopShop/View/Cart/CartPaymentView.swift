@@ -13,9 +13,9 @@ struct CartPaymentView: View {
     
     var body: some View {
         Button(action: {
-            showingAlert = true
             if cart.subtotal != 0.0 {
                 cart.makeOrder()
+                showingAlert = true
             }
         }, label: {
             HStack {
