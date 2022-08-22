@@ -75,5 +75,6 @@ struct ProductDetailView_Previews: PreviewProvider {
         ProductDetailView()
             .environmentObject(Shop())
             .previewLayout(.fixed(width: 375, height: 812))
+            .environmentObject(Cart())
     }
 }
