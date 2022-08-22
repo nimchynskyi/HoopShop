@@ -58,8 +58,6 @@ class Cart: ObservableObject {
             cartItems.append(CartProduct(product: product, count: self.count))
             self.countTotal += self.count
         }
-        
-        count = 0
     }
     
     func removeProduct(product: CartProduct) {
