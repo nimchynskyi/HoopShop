@@ -11,12 +11,14 @@ struct AddToCartDetailView: View {
     // MARK: - Property
     @EnvironmentObject var shop: Shop
     @EnvironmentObject var cart: Cart
+    @State private var showingAlert = false
     
     // MARK: - Body
     var body: some View {
         Button(action: {
             if cart.count != 0 {
                 cart.addProduct(product: shop.selectedProduct ?? sampleProduct)
+                showingAlert = true
             }
             feedback.impactOccurred()
         }, label: {
@@ -36,6 +38,14 @@ struct AddToCartDetailView: View {
             )
         )
         .clipShape(Capsule())
+        .alert(isPresented: $showingAlert) {
+            Alert(title: Text("Added to cart successfully!"), dismissButton: .default(Text("Okay!")))
+        }
+        .alert("Added to cart successfully!", isPresented: $showingAlert, actions: {
+              Button("Continue shopping", role: .cancel, action: {})
+            }, message: {
+                Text("\(shop.selectedProduct?.name ?? "This item") is added to your cart.")
+            })
     }
 }
 
