@@ -33,9 +33,17 @@ struct NavigationBarDetailView: View {
                 feedback.impactOccurred()
                 cart.showingCart.toggle()
             }, label: {
-                Image(systemName: "cart")
-                    .font(.title)
-                    .foregroundColor(.white)
+                ZStack {
+                    Image(systemName: "cart")
+                        .font(.title)
+                        .foregroundColor(.white)
+                    if cart.count != 0 {
+                        Circle()
+                            .fill(Color.red)
+                            .frame(width: 14, height: 14, alignment: .center)
+                            .offset(x: 13, y: -10)
+                    }
+                }
             }).sheet(isPresented: $cart.showingCart) {
                 CartView()
             }
