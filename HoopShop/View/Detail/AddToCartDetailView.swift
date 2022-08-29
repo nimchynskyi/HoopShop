@@ -38,14 +38,11 @@ struct AddToCartDetailView: View {
             )
         )
         .clipShape(Capsule())
-        .alert(isPresented: $showingAlert) {
-            Alert(title: Text("Added to cart successfully!"), dismissButton: .default(Text("Okay!")))
-        }
         .alert("Added to cart successfully!", isPresented: $showingAlert, actions: {
-              Button("Continue shopping", role: .cancel, action: {})
-            }, message: {
-                Text("\(shop.selectedProduct?.name ?? "This item") is added to your cart.")
-            })
+            Button("Continue shopping", role: .cancel, action: {})
+        }, message: {
+            Text("\(shop.selectedProduct?.name ?? "This item") is added to your cart.")
+        })
     }
 }
 
