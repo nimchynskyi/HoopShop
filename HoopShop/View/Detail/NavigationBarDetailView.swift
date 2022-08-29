@@ -37,7 +37,7 @@ struct NavigationBarDetailView: View {
                     Image(systemName: "cart")
                         .font(.title)
                         .foregroundColor(.white)
-                    if cart.count != 0 {
+                    if cart.showingDot {
                         Circle()
                             .fill(Color.red)
                             .frame(width: 14, height: 14, alignment: .center)

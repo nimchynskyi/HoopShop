@@ -11,6 +11,7 @@ struct NavigationBarView: View {
     // MARK: - PROPERTIES
     @State private var isAnimated: Bool = false
     @EnvironmentObject var cart: Cart
+    @State private var showingDot = false
     
     // MARK: - BODY
     var body: some View {
@@ -42,7 +43,7 @@ struct NavigationBarView: View {
                     Image(systemName: "cart")
                         .font(.title)
                         .foregroundColor(.black)
-                    if cart.count != 0 {
+                    if cart.showingDot {
                         Circle()
                             .fill(Color.red)
                             .frame(width: 14, height: 14, alignment: .center)

@@ -36,6 +36,7 @@ extension CartProduct : Equatable {
 class Cart: ObservableObject {
     @Published var cartItems: [CartProduct] = []
     @Published var showingCart: Bool = false
+    @Published var showingDot: Bool = false
     
     // Display order
     var count = 0
@@ -45,6 +46,7 @@ class Cart: ObservableObject {
     
     func addProduct(product: Product){
         subtotal += Double(count * product.price)
+        showingDot = true
         
         var addNewProduct = true
         for (index, item) in cartItems.enumerated() {
@@ -64,6 +66,9 @@ class Cart: ObservableObject {
         self.countTotal -= product.count
         subtotal -= Double(product.product.price * product.count)
         cartItems.removeAll(where: { $0 == product })
+        if countTotal == 0 {
+            showingDot = false
+        }
     }
     
     func makeOrder() {
@@ -107,5 +112,6 @@ class Cart: ObservableObject {
         self.count = 0
         self.countTotal = 0
         self.subtotal = 0.0
+        showingDot = false
     }
 }
