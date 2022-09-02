@@ -9,8 +9,8 @@ import SwiftUI
 
 struct NavigationBarView: View {
     // MARK: - PROPERTIES
-    @State private var isAnimated: Bool = false
     @EnvironmentObject var cart: Cart
+    @State private var isAnimated: Bool = false
     @State private var showingDot = false
     
     // MARK: - BODY
@@ -20,7 +20,7 @@ struct NavigationBarView: View {
                 Image(systemName: "magnifyingglass")
                     .font(.title)
                     .foregroundColor(.black)
-            })//: Button
+            })
             
             Spacer()
             
@@ -52,9 +52,8 @@ struct NavigationBarView: View {
                 }
             }).sheet(isPresented: $cart.showingCart) {
                 CartView()
-            }//: Button
-        }//: HStack
-//        .preferredColorScheme(.light) // white tint on status bar
+            }
+        }
     }
 }
 

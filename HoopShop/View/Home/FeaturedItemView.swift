@@ -18,7 +18,7 @@ struct FeaturedItemView: View {
     var body: some View {
         Image(featuredProduct.image)
             .resizable()
-            .scaledToFit()
+            .scaledToFit() 
             .cornerRadius(12)
     }
 }
@@ -26,7 +26,7 @@ struct FeaturedItemView: View {
 // MARK: - PREVIEW
 struct FeaturedItemView_Previews: PreviewProvider {
     static var previews: some View {
-        FeaturedItemView(featuredProduct: featuredProducts[5])
+        FeaturedItemView(featuredProduct: featuredProducts[0])
             .previewLayout(.sizeThatFits)
             .padding()
             .background(colorBackground)
